@@ -1,14 +1,12 @@
-version: '3.8'
-
 services:
-  corgi-bday-app:
+  olya-bday-app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: corgi-bday-app
+    container_name: olya-bday-app
     restart: always
     ports:
-      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3021:3000"
     environment:
       - NODE_ENV=production
-      - SECRET_ACCESS_CODE=3010
+      - SECRET_ACCESS_CODE=1311

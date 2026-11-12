@@ -1,1 +1,1 @@
-export const SECRET_ACCESS_CODE = process.env.SECRET_ACCESS_CODE || "3010";
+export const SECRET_ACCESS_CODE = process.env.SECRET_ACCESS_CODE || "1311";

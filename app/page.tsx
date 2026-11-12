@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Gift, RefreshCw, Lock, KeyRound, ArrowRight } from "lucide-react";
-import { TicketCard } from "@/components/TicketCard";
-import { QRCodeCard } from "@/components/QRCodeCard";
+import { ConcertTicket } from "@/components/ConcertTicket";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { FloatingHearts } from "@/components/FloatingHearts";
 import { triggerCorgiConfetti } from "@/components/CorgiConfetti";
@@ -61,48 +60,48 @@ export default function BirthdayPage() {
   };
 
   return (
-    <main className="relative min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 overflow-hidden selection:bg-pink-200">
+    <main className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 pt-8 pb-28 sm:p-6 sm:pb-28 md:p-10 md:pb-28 overflow-hidden selection:bg-pink-200">
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-          className="absolute top-10 left-[6%] text-5xl opacity-60"
+          className="absolute top-10 left-[6%] text-3xl sm:text-5xl opacity-40 sm:opacity-60"
         >
           🎈
         </motion.div>
         <motion.div
           animate={{ y: [0, 22, 0], rotate: [0, -12, 0] }}
           transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-          className="absolute top-12 right-[8%] text-5xl opacity-60"
+          className="absolute top-12 right-[8%] text-3xl sm:text-5xl opacity-40 sm:opacity-60"
         >
           ✨
         </motion.div>
         <motion.div
           animate={{ y: [0, -18, 0], rotate: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut", delay: 0.5 }}
-          className="absolute top-1/3 left-[4%] text-4xl opacity-50"
+          className="absolute top-1/3 left-[4%] text-2xl sm:text-4xl opacity-35 sm:opacity-50"
         >
           🎉
         </motion.div>
         <motion.div
           animate={{ y: [0, 25, 0], rotate: [0, -15, 0] }}
           transition={{ repeat: Infinity, duration: 8, ease: "easeInOut", delay: 1.5 }}
-          className="absolute top-1/3 right-[5%] text-4xl opacity-50"
+          className="absolute top-1/3 right-[5%] text-2xl sm:text-4xl opacity-35 sm:opacity-50"
         >
           🥳
         </motion.div>
         <motion.div
           animate={{ y: [0, -15, 0] }}
           transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-16 left-[8%] text-4xl opacity-50"
+          className="absolute bottom-16 left-[8%] text-2xl sm:text-4xl opacity-35 sm:opacity-50"
         >
           🎁
         </motion.div>
         <motion.div
           animate={{ y: [0, 18, 0], rotate: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 7.5, ease: "easeInOut", delay: 0.8 }}
-          className="absolute bottom-24 right-[10%] text-5xl opacity-60"
+          className="absolute bottom-24 right-[10%] text-3xl sm:text-5xl opacity-40 sm:opacity-60"
         >
           🎂
         </motion.div>
@@ -230,13 +229,13 @@ export default function BirthdayPage() {
                   transition={{ duration: 0.4 }}
                   className="w-full max-w-2xl sm:max-w-3xl mx-auto px-2"
                 >
-                  <div className="kumo-card p-6 sm:p-12 rounded-3xl shadow-kumo text-center relative overflow-hidden">
+                  <div className="kumo-card p-5 sm:p-12 rounded-3xl shadow-kumo text-center relative overflow-hidden">
 
                     <div className="absolute -top-16 -left-16 w-36 h-36 bg-pink-300/30 rounded-full blur-2xl pointer-events-none" />
                     <div className="absolute -bottom-16 -right-16 w-36 h-36 bg-rose-400/20 rounded-full blur-2xl pointer-events-none" />
 
                     <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-800 tracking-tight mb-6 flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-                      <span className="whitespace-nowrap">Ветя, с днем рождения!</span>
+                      <span>Ветя, с днем рождения!</span>
                       <span className="inline-block animate-bounce">🎂</span>
                     </h1>
 
@@ -307,18 +306,14 @@ export default function BirthdayPage() {
                       initial={{ y: -20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.1, duration: 0.5 }}
-                      className="text-3xl sm:text-4xl font-extrabold text-slate-800 tracking-tight"
+                      className="text-2xl sm:text-4xl font-extrabold text-slate-800 tracking-tight"
                     >
                       Твой подарок!
                     </motion.h2>
                   </div>
 
                   <div className="w-full flex items-center justify-center my-2">
-                    <QRCodeCard
-                      qrImageUrl="/WB_podarok.png"
-                      address="Европейский проспект, 21к2"
-                      note="Если не успеешь сегодня забрать, напиши мне)"
-                    />
+                    <ConcertTicket pdfUrl={`/api/ticket?code=${authorizedCode}`} />
                   </div>
 
                   <motion.div
@@ -342,7 +337,7 @@ export default function BirthdayPage() {
 
         </AnimatePresence>
 
-        <footer className="text-center mt-12 text-xs text-slate-600 font-medium">
+        <footer className="text-center mt-8 sm:mt-12 text-xs text-slate-600 font-medium">
           Powered by obolensky.dev
         </footer>
 
