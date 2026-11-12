@@ -148,7 +148,7 @@ export default function BirthdayPage() {
                   Доступ ограничен 🔒
                 </h1>
                 <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-                  Этот секретный сюрприз только для Виолетты!
+                  Этот секретный сюрприз только для Оли!
                 </p>
 
                 <form onSubmit={handleVerifyCode} className="space-y-4 text-left">
@@ -225,38 +225,37 @@ export default function BirthdayPage() {
                     <div className="absolute -bottom-16 -right-16 w-36 h-36 bg-rose-400/20 rounded-full blur-2xl pointer-events-none" />
 
                     <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-800 tracking-tight mb-6 flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-                      <span>Ветя, с днем рождения!</span>
+                      <span>Оля, с днем рождения!</span>
                       <span className="inline-block animate-bounce">🎂</span>
                     </h1>
 
-                    <div className="space-y-4 text-slate-800 text-base sm:text-lg md:text-xl font-medium leading-relaxed mb-6 w-full max-w-2xl mx-auto">
+                    <div className="space-y-4 text-slate-800 text-base sm:text-lg md:text-xl font-medium leading-relaxed mb-7 w-full max-w-2xl mx-auto">
                       <p className="font-semibold text-slate-800">
                         Сегодня прекрасный день, потому что в этот день появилась ты.
                       </p>
                       <p>
-                        Оставайся всегда такой, какая ты есть, а именно: доброй, жизнерадостной, весёлой, открытой, смелой, любимой и ещё много комплиментов, которые не поместятся на эту страницу)
+                        Оставайся всегда такой, какая ты есть, а именно: доброй, жизнерадостной, весёлой, открытой, смелой и ещё много комплиментов, которые не поместятся на эту страницу)
                       </p>
                       <p>
                         Пусть эта жизнь будет наполнять тебя только положительными и красочными воспоминаниями.
                       </p>
-                      <p className="pt-2 text-rose-500 font-semibold italic text-sm sm:text-base md:text-lg">
-                        P.s. Спасибо, что ты появилась в моей жизни ❤️
-                      </p>
                     </div>
 
-                    {/* Фотография виновницы торжества под текстом поздравления */}
+                    {/* Фотография в стиле кружка под текстом поздравления */}
                     <motion.div
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className="relative mx-auto mb-8 max-w-sm sm:max-w-md"
+                      className="relative mx-auto mb-8 w-52 h-52 sm:w-64 sm:h-64"
                     >
-                      <div className="p-2 sm:p-2.5 bg-white/90 backdrop-blur-md rounded-3xl border border-pink-200/80 shadow-xl overflow-hidden rotate-[-1deg] hover:rotate-0 transition-transform duration-300">
-                        <img
-                          src="/photo.jpg"
-                          alt="Ветя"
-                          className="w-full h-auto rounded-2xl object-cover shadow-sm max-h-[380px]"
-                        />
+                      <div className="w-full h-full rounded-full p-1.5 bg-gradient-to-tr from-pink-400 via-rose-300 to-amber-200 shadow-xl hover:scale-[1.03] transition-transform duration-300">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-white p-1">
+                          <img
+                            src="/photo.jpg"
+                            alt="Оля"
+                            className="w-full h-full rounded-full object-cover"
+                          />
+                        </div>
                       </div>
                     </motion.div>
 
