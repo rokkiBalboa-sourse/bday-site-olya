@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="affinage-ticket.pdf"',
+        "Content-Disposition": 'inline; filename="affinage-ticket.pdf"',
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
       },
     });

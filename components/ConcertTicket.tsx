@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Download, MapPin } from "lucide-react";
+import { Ticket, MapPin } from "lucide-react";
 
 interface ConcertTicketProps {
   pdfUrl: string;
@@ -93,11 +93,12 @@ export const ConcertTicket: React.FC<ConcertTicketProps> = ({ pdfUrl }) => {
 
         <a
           href={pdfUrl}
-          download="affinage-ticket.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-400 to-pink-500 py-3.5 text-base font-bold text-white active:scale-[0.98] transition-transform"
         >
-          <Download className="h-5 w-5" />
-          Скачать билет (PDF)
+          <Ticket className="h-5 w-5" />
+          Открыть билет
         </a>
       </div>
 
