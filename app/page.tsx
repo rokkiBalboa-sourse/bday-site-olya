@@ -62,77 +62,67 @@ export default function BirthdayPage() {
   return (
     <main className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 pt-8 pb-28 sm:p-6 sm:pb-28 md:p-10 md:pb-28 overflow-hidden selection:bg-pink-200">
 
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-          className="absolute top-10 left-[6%] text-3xl sm:text-5xl opacity-40 sm:opacity-60"
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+        <div
+          style={{ "--float-duration": "6s", "--float-delay": "0s" } as React.CSSProperties}
+          className="absolute top-10 left-[6%] text-3xl sm:text-5xl opacity-40 sm:opacity-60 animate-bg-float"
         >
           🎈
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 22, 0], rotate: [0, -12, 0] }}
-          transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-          className="absolute top-12 right-[8%] text-3xl sm:text-5xl opacity-40 sm:opacity-60"
+        </div>
+        <div
+          style={{ "--float-duration": "7s", "--float-delay": "1s" } as React.CSSProperties}
+          className="absolute top-12 right-[8%] text-3xl sm:text-5xl opacity-40 sm:opacity-60 animate-bg-float"
         >
           ✨
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, -18, 0], rotate: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut", delay: 0.5 }}
-          className="absolute top-1/3 left-[4%] text-2xl sm:text-4xl opacity-35 sm:opacity-50"
+        </div>
+        <div
+          style={{ "--float-duration": "5.5s", "--float-delay": "0.5s" } as React.CSSProperties}
+          className="absolute top-1/3 left-[4%] text-2xl sm:text-4xl opacity-35 sm:opacity-50 animate-bg-float"
         >
           🎉
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 25, 0], rotate: [0, -15, 0] }}
-          transition={{ repeat: Infinity, duration: 8, ease: "easeInOut", delay: 1.5 }}
-          className="absolute top-1/3 right-[5%] text-2xl sm:text-4xl opacity-35 sm:opacity-50"
+        </div>
+        <div
+          style={{ "--float-duration": "8s", "--float-delay": "1.5s" } as React.CSSProperties}
+          className="absolute top-1/3 right-[5%] text-2xl sm:text-4xl opacity-35 sm:opacity-50 animate-bg-float"
         >
           🥳
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, -15, 0] }}
-          transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-16 left-[8%] text-2xl sm:text-4xl opacity-35 sm:opacity-50"
+        </div>
+        <div
+          style={{ "--float-duration": "5s", "--float-delay": "2s" } as React.CSSProperties}
+          className="absolute bottom-16 left-[8%] text-2xl sm:text-4xl opacity-35 sm:opacity-50 animate-bg-float"
         >
           🎁
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 18, 0], rotate: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 7.5, ease: "easeInOut", delay: 0.8 }}
-          className="absolute bottom-24 right-[10%] text-3xl sm:text-5xl opacity-40 sm:opacity-60"
+        </div>
+        <div
+          style={{ "--float-duration": "7.5s", "--float-delay": "0.8s" } as React.CSSProperties}
+          className="absolute bottom-24 right-[10%] text-3xl sm:text-5xl opacity-40 sm:opacity-60 animate-bg-float"
         >
           🎂
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, -14, 0], rotate: [0, -6, 0] }}
-          transition={{ repeat: Infinity, duration: 6.5, ease: "easeInOut", delay: 1.2 }}
-          className="absolute top-24 left-[22%] text-3xl opacity-40 hidden md:block"
+        </div>
+        <div
+          style={{ "--float-duration": "6.5s", "--float-delay": "1.2s" } as React.CSSProperties}
+          className="absolute top-24 left-[22%] text-3xl opacity-40 hidden md:block animate-bg-float"
         >
           ⭐
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 16, 0], rotate: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 6.8, ease: "easeInOut", delay: 2.2 }}
-          className="absolute top-20 right-[24%] text-3xl opacity-40 hidden md:block"
+        </div>
+        <div
+          style={{ "--float-duration": "6.8s", "--float-delay": "2.2s" } as React.CSSProperties}
+          className="absolute top-20 right-[24%] text-3xl opacity-40 hidden md:block animate-bg-float"
         >
           🎵
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, -22, 0], rotate: [0, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 7.2, ease: "easeInOut", delay: 1.8 }}
-          className="absolute bottom-10 left-[28%] text-4xl opacity-50 hidden sm:block"
+        </div>
+        <div
+          style={{ "--float-duration": "7.2s", "--float-delay": "1.8s" } as React.CSSProperties}
+          className="absolute bottom-10 left-[28%] text-4xl opacity-50 hidden sm:block animate-bg-float"
         >
           💖
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 20, 0], rotate: [0, 12, 0] }}
-          transition={{ repeat: Infinity, duration: 8.2, ease: "easeInOut", delay: 0.3 }}
-          className="absolute bottom-12 right-[26%] text-4xl opacity-50 hidden sm:block"
+        </div>
+        <div
+          style={{ "--float-duration": "8.2s", "--float-delay": "0.3s" } as React.CSSProperties}
+          className="absolute bottom-12 right-[26%] text-4xl opacity-50 hidden sm:block animate-bg-float"
         >
           🐕
-        </motion.div>
+        </div>
       </div>
 
       <div className="w-full max-w-5xl mx-auto z-10">

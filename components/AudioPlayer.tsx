@@ -91,7 +91,7 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay: 0.7 }}
-      className="fixed bottom-6 left-0 right-0 mx-auto w-max z-50 px-4 py-2.5 rounded-full bg-white/90 backdrop-blur-xl border border-pink-200/80 shadow-2xl flex items-center gap-3 select-none"
+      className="fixed bottom-6 left-0 right-0 mx-auto w-max z-50 px-4 py-2.5 rounded-full bg-white/95 backdrop-blur-md border border-pink-200/80 shadow-xl flex items-center gap-3 select-none"
     >
       {/* Скрытый тег audio */}
       <audio

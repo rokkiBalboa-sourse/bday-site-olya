@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 interface HeartItem {
   id: number;
   emoji: string;
-  left: number; // Позиция по горизонтали (в %)
+  left: number;
   scale: number;
   duration: number;
   delay: number;
@@ -14,6 +13,7 @@ interface HeartItem {
 }
 
 const HEART_EMOJIS = ["❤️", "💖", "💗", "💕", "♥️", "💓", "💞"];
+const HEART_COUNT = 18;
 
 interface FloatingHeartsProps {
   isActive: boolean;
@@ -28,49 +28,53 @@ export const FloatingHearts: React.FC<FloatingHeartsProps> = ({ isActive }) => {
       return;
     }
 
-    // Генерируем 25 уникальных сердечек с случайными траекториями
-    const items: HeartItem[] = Array.from({ length: 28 }).map((_, index) => ({
+    const items: HeartItem[] = Array.from({ length: HEART_COUNT }).map((_, index) => ({
       id: index,
       emoji: HEART_EMOJIS[Math.floor(Math.random() * HEART_EMOJIS.length)],
-      left: Math.floor(Math.random() * 90) + 5, // 5% - 95%
-      scale: Math.random() * 0.7 + 0.7, // 0.7 - 1.4
-      duration: Math.random() * 3 + 3.5, // 3.5s - 6.5s
-      delay: Math.random() * 2.5, // задержка 0s - 2.5s
-      sway: Math.random() * 60 - 30, // отклонение влево-вправо
+      left: Math.floor(Math.random() * 88) + 6,
+      scale: Number((Math.random() * 0.55 + 0.75).toFixed(2)),
+      duration: Number((Math.random() * 2.2 + 3.4).toFixed(2)),
+      delay: Number((Math.random() * 1.8).toFixed(2)),
+      sway: Math.floor(Math.random() * 44 - 22),
     }));
 
     setHearts(items);
+
+    // Размонтируем сердечки после завершения самого долгого полёта, чтобы не держать лишние слои в DOM
+    const maxLifetimeMs =
+      Math.max(...items.map((item) => (item.duration + item.delay) * 1000)) + 300;
+    const cleanupTimer = setTimeout(() => {
+      setHearts([]);
+    }, maxLifetimeMs);
+
+    return () => clearTimeout(cleanupTimer);
   }, [isActive]);
 
   if (!isActive || hearts.length === 0) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-40 overflow-hidden">
+    <div
+      className="fixed inset-0 pointer-events-none z-40 overflow-hidden"
+      style={{ contain: "layout style paint" }}
+      aria-hidden="true"
+    >
       {hearts.map((heart) => (
-        <motion.div
+        <span
           key={heart.id}
-          initial={{
-            y: "105vh",
-            x: 0,
-            opacity: 0,
-            scale: heart.scale * 0.5,
-          }}
-          animate={{
-            y: "-20vh",
-            x: [0, heart.sway, -heart.sway, 0],
-            opacity: [0, 1, 1, 0],
-            scale: [heart.scale * 0.5, heart.scale, heart.scale * 0.9],
-          }}
-          transition={{
-            duration: heart.duration,
-            delay: heart.delay,
-            ease: "easeOut",
-          }}
-          style={{ left: `${heart.left}%` }}
-          className="absolute text-2xl sm:text-4xl filter drop-shadow-md select-none"
+          style={
+            {
+              left: `${heart.left}%`,
+              top: 0,
+              animationDuration: `${heart.duration}s`,
+              animationDelay: `${heart.delay}s`,
+              "--heart-scale": heart.scale,
+              "--heart-sway": `${heart.sway}px`,
+            } as React.CSSProperties
+          }
+          className="absolute text-2xl sm:text-4xl select-none animate-heart-float"
         >
           {heart.emoji}
-        </motion.div>
+        </span>
       ))}
     </div>
   );

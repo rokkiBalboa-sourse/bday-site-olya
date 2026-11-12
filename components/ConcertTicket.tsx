@@ -35,7 +35,10 @@ export const ConcertTicket: React.FC<ConcertTicketProps> = ({ pdfUrl }) => {
       animate={{ y: 0, opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, type: "spring", stiffness: 90, damping: 15 }}
       className="w-full max-w-[380px] mx-auto"
-      style={{ filter: "drop-shadow(0 18px 30px rgba(190, 24, 93, 0.14))" }}
+      style={{
+        filter: "drop-shadow(0 12px 20px rgba(190, 24, 93, 0.12))",
+        transform: "translateZ(0)",
+      }}
     >
       {/* Верх: группа */}
       <div className="bg-white rounded-t-[28px] px-5 pt-5 pb-4 text-center">
